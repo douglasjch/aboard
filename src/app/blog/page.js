@@ -1,10 +1,10 @@
-import getDomain from "../lib/getDomain"
+import getDomain from "@/app/lib/getDomain"
 async function getData() {
     // 1 endpoint - API?
    const domain = getDomain()
    const endpoint = `${domain}/api/posts` // -> third party api request??
-    // const res = await fetch(endpoint, {next: {revalidate: 10 }}) // HTTP GET
-    const res = await fetch(endpoint) // HTTP GET
+    const res = await fetch(endpoint, {next: {revalidate: 10 }}) // HTTP GET
+    // const res = await fetch(endpoint) // HTTP GET
 // cache: 'no-store'  , {cache: 'no-store' }
     if (!res.ok) {
         throw new Error("Failed to fetch data")
