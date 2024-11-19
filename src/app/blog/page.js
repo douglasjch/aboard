@@ -1,4 +1,4 @@
-import getDomain from "@app/lib/getDomain"
+import getDomain from "../lib/getDomain"
 async function getData() {
     // 1 endpoint - API?
    const domain = getDomain()
