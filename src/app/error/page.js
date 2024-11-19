@@ -1,19 +1,24 @@
-'use client'
+async function getData() {
+    // 1 endpoint - API?
+    // const endpoint = "http://localhosts:3000/api/posts" // -> third party api request??
+    // const res = await fetch(endpoint) // HTTP GET
 
-import { useEffect } from 'react'
+    // if (!res.ok) {
+    //      throw new Error("Failed to fetch data")
+    // }
+    // return res.json()
+    return {items: []}
+}
 
 
-export default function Error({ error, reset }) {
-    useEffect(()=>{
-        console.log("error is", error)
-    }, [error])
-
-    const retryRequestHandler = () => {
-        reset()
-    }
-
-    return <div>
-        <h2>Something went wrong with third party API !</h2>
-        <button onClick={retryRequestHandler}>Retry request</button>
-    </div>
+export default async function BlogPage() {
+    const data = await getData()
+    const items = data && data.items ? [...data.items] : []
+    return <main>
+        <h1>Error on Page:</h1>
+        <p>Posts:</p>
+        {items && items.map((item, idx)=>{
+            return <li key={`post-${idx}`}>{item.title}</li>
+        })}
+    </main>
 }
