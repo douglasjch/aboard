@@ -23,7 +23,7 @@ export default async function BlogPage() {
 
     return <main>
         <h1>Posts:</h1>
-        <h1>hello</h1>
+        <h1>hello 1</h1>
     {/* {items && items.map((item, idx) => {
         return <li key={`post-${idx}`}>{item.title}</li>
     }) } */}
