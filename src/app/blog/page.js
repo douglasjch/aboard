@@ -1,12 +1,13 @@
 import getDomain from "@/app/lib/getDomain"
+import BlogCard from "./card"
 async function getData() {
     // 1 endpoint - API?
    const domain = getDomain()
    const endpoint = `${domain}/api/posts` // -> third party api request??
  //    const res = await fetch(endpoint, {next: {revalidate: 10 }}) // HTTP GET
- // const res = await fetch(endpoint, {method: 'GET'}) // HTTP GET
-  const res = await fetch(endpoint, {cache: 'force-cache' }) // HTTP GET
- //  const res = await fetch(endpoint, {cache: 'no-store' }) // HTTP GET
+ //    const res = await fetch(endpoint, {method: 'GET'}) // HTTP GET
+ //    const res = await fetch(endpoint, {cache: 'force-cache' }) // HTTP GET
+   const res = await fetch(endpoint, {cache: 'no-store' }) // HTTP GET
     
     if (!res.ok) {
         throw new Error("Failed to fetch data")
@@ -27,9 +28,9 @@ export default async function BlogPage() {
 
   return <main>
       <h1>Posts:</h1>
-      <h1>hello 11</h1>
+      <h1></h1>
   {items && items.map((item, idx) => {
-      return <li key={`post-${idx}`}>{item.title}</li>
+      return <BlogCard title={item.title} key={`post-${idx}`} />
   }) }
   </main>
 }
