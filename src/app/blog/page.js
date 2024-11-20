@@ -4,8 +4,8 @@ async function getData() {
    const domain = getDomain()
    const endpoint = `${domain}/api/posts` // -> third party api request??
  //    const res = await fetch(endpoint, {next: {revalidate: 10 }}) // HTTP GET
- const res = await fetch(endpoint, {method: 'GET'}) // HTTP GET
- // const res = await fetch(endpoint, {cache: 'force-cache' }) // HTTP GET
+ // const res = await fetch(endpoint, {method: 'GET'}) // HTTP GET
+  const res = await fetch(endpoint, {cache: 'force-cache' }) // HTTP GET
  //  const res = await fetch(endpoint, {cache: 'no-store' }) // HTTP GET
     
     if (!res.ok) {
