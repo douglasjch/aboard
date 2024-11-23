@@ -14,4 +14,4 @@ export default function BlogCard({title}) {
                 <h1 onClick={handleClick}>{title}</h1>
                 {count}
             </div>
-}
+};

@@ -2,8 +2,7 @@
 
 import {useState} from 'react'
 import { Alert, Button, Label, TextInput } from 'flowbite-react';
-
-
+//  import { stringify } from 'postcss';
 
 export default function LinksCreateForm ({didSubmit}) {
     const [results, setResults] = useState(null)
@@ -13,7 +12,9 @@ export default function LinksCreateForm ({didSubmit}) {
         event.preventDefault()
         const formData = new FormData(event.target)
         const data = Object.fromEntries(formData)
+        console.log(data)
         const JSONData = JSON.stringify(data)
+        console.log(JSONData)
         const endpoint = "/api/links/"
             const options = {
                 method: "POST",
@@ -21,25 +22,24 @@ export default function LinksCreateForm ({didSubmit}) {
                     "Content-Type": "application/json"
                 },
                 body: JSONData
-            }
-           
+            }           
         const response = await fetch(endpoint, options)
 
         const result = await response.json()
         console.log(result)
 
-        setResults(results)
+        setResults(result)
         if (didSubmit) {
             didSubmit(result)
         }
         if (result.message) {
             setMessage(result.message)
-        }
-        
-    }
+        }        
+    };
 
     return <>
         {message && <Alert color="warning">{message}</Alert>}
+
          <form className="flex flex-col max-w-md gap-4" onSubmit={handleForm}>
 
          <div>
@@ -57,11 +57,12 @@ export default function LinksCreateForm ({didSubmit}) {
             type="text"
             />
         </div>
+       
         <Button type="submit">
             Shorten
         </Button>
 
         </form>
-        {results && JSON.stringify(results)}
+               {results && JSON.stringify(results)}
     </>
-}
+};

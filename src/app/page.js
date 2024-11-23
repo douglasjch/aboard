@@ -10,7 +10,7 @@ export default function Home() {
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
           href="http://localhost:3000/blog"
-          target="_blank"
+          
           rel="noopener noreferrer"
         >
           Blog page
@@ -18,11 +18,19 @@ export default function Home() {
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
           href="http://localhost:3000/api/posts"
-          target="_blank"
+        
           rel="noopener noreferrer"
         >
           
           api Posts
+        </a>
+        <a
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="http://localhost:3000/links"
+
+        >
+          
+          api Links
         </a>
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"

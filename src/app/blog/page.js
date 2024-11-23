@@ -28,8 +28,9 @@ export default async function BlogPage() {
    // const dbHello = await helloWorld()
     const items = data && data.items ? [...data.items] : []
     return <main>
+
         <h1>Hello World</h1>
-        {/* <p>DB Response: {JSON.stringify(dbHello)}</p> */}
+            {/* <p>DB Response: {JSON.stringify(dbHello)}</p> */}
         <p>Posts:</p>
         {items && items.map((item, idx)=>{
             return <BlogCard title={item.title} key={`post-${idx}`} />
@@ -38,4 +39,4 @@ export default async function BlogPage() {
 }
 
 export const runtime = 'edge' // nodejs
-export const preferredRegion = "iad1"
+// export const preferredRegion = "iad1"

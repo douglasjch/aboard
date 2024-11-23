@@ -1,17 +1,20 @@
-import { NextResponse } from 'next/server'
+ import { NextResponse } from 'next/server';
+ import isValidURL from '@/app/lib/isValidURL';
+export async function POST(request) {
+        // using standard HTML Form
+    // const formData = await request.formData()
+    // console.log(formData)
+    const contentType = await request.headers.get("content-type")
+        if (contentType !== "application/json") {
+            return NextResponse.json({"error": "Invalid request"}, {status: 415})
+        };
 
-
-// export async function GET() {
-//     return NextResponse.json({items: [
-//         {id:1, title:"Hello World"},
-//         {id:2, title:"Hello again"},
-//         {id:3, title:"Hello ddss"},
+   const data = await request.json()
+   const url = data && data.url ? data.url : null
+   const validURL = await isValidURL(url, ["localhost:3000", process.env.NEXT_PUBLIC_VERCEL_URL ])
+        if (!validURL) {
+                    return NextResponse.json({"message": `${url} is not valid`}, 
+                        {status: 400})};
         
-//     ]})
-// }
-
-export async function POST() {
-    // FORM DATA
-    // API JSON POST DATA
-    return NextResponse.json({message: "abc"})
-}
+return NextResponse.json(data, {status: 201})
+};
