@@ -9,4 +9,4 @@ export default async function isValidURL(url, disallowedDomains) {
   
     // Test the URL against both URL pattern and disallowed domain pattern
     return urlRegex.test(url) && !disallowedRegex.test(url);
-  };
+  }

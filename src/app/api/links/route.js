@@ -11,7 +11,8 @@ export async function POST(request) {
 
    const data = await request.json()
    const url = data && data.url ? data.url : null
-   const validURL = await isValidURL(url, ["localhost:3000", process.env.NEXT_PUBLIC_VERCEL_URL ])
+   // , process.env.NEXT_PUBLIC_VERCEL_URL
+   const validURL = await isValidURL(url, ["localhost:30000" ])
         if (!validURL) {
                     return NextResponse.json({"message": `${url} is not valid`}, 
                         {status: 400})};

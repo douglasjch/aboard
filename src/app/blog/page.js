@@ -1,6 +1,6 @@
 import getDomain from "@/app/lib/getDomain"
 import BlogCard from './card'
-// import { helloWorld } from "@/app/lib/db"
+import { helloWorld } from "@/app/lib/db"
 
 
 async function getData() {
@@ -25,12 +25,20 @@ async function getData() {
 
 export default async function BlogPage() {
     const data = await getData()
-   // const dbHello = await helloWorld()
-    const items = data && data.items ? [...data.items] : []
+    const dbHello = await helloWorld()
+    console.log('dbHello', dbHello)
+ //   const 
+ //   const [dbResponse] = dbResponse && dbResponse.now ? dbResponse.now : ""
+ //   return dbNow
+     
+
+
+   const items = data && data.items ? [...data.items] : []
+   
     return <main>
 
-        <h1>Hello World</h1>
-            {/* <p>DB Response: {JSON.stringify(dbHello)}</p> */}
+        <h1>Hello Worldly</h1>
+            <p>DB Response: {JSON.stringify(dbHello)}</p>
         <p>Posts:</p>
         {items && items.map((item, idx)=>{
             return <BlogCard title={item.title} key={`post-${idx}`} />
@@ -38,5 +46,5 @@ export default async function BlogPage() {
     </main>
 }
 
-export const runtime = 'edge' // nodejs
-// export const preferredRegion = "iad1"
+// export const runtime = 'edge' // nodejs
+// export const preferredRegion = "pdx1"
