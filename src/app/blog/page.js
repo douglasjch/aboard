@@ -44,5 +44,5 @@ export default async function BlogPage() {
     </main>
 }
 
-export const runtime = 'edge' // disable to use nodejs - edge could be faster
+// export const runtime = 'edge' // disable to use nodejs - edge could be faster -- this faults on vercel
 // export const preferredRegion = "pdx1"  HAD THIS REMOVED DUe TO A "COULD NOT REDUCE ERROR"
