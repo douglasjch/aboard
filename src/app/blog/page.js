@@ -46,5 +46,5 @@ export default async function BlogPage() {
     </main>
 }
 
-export const runtime = 'edge' // disable to use nodejs - edge could be faster
-export const preferredRegion = "pdx1"
+// export const runtime = 'edge' // disable to use nodejs - edge could be faster
+// export const preferredRegion = "pdx1"
