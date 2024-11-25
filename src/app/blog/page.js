@@ -27,12 +27,10 @@ export default async function BlogPage() {
     const data = await getData()
     const dbHello = await helloWorld()
     console.log('dbHello', dbHello)
- //   const 
+ 
  //   const [dbResponse] = dbResponse && dbResponse.now ? dbResponse.now : ""
  //   return dbNow
      
-
-
    const items = data && data.items ? [...data.items] : []
    
     return <main>
@@ -46,5 +44,5 @@ export default async function BlogPage() {
     </main>
 }
 
-// export const runtime = 'edge' // disable to use nodejs - edge could be faster
-// export const preferredRegion = "pdx1"
+export const runtime = 'edge' // disable to use nodejs - edge could be faster
+export const preferredRegion = "pdx1"
